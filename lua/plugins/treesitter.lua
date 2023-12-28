@@ -2,7 +2,12 @@ return  {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   config = function ()
-    require'nvim-treesitter.configs'.setup {
+    local config = require('nvim-treesitter.configs')
+    config.setup {
+      auto_install = true,
+      highlight = { enable = true },
+      indent = { enable = true },
+      sync_install = false,
       ensure_installed = {
         "bash",
         "css",
@@ -43,10 +48,6 @@ return  {
         "xml",
         "yaml",
       },
-      sync_install = false,
-      auto_install = true,
-      highlight = { enable = true },
-      indent = { enable = true },
     }
   end
 }
